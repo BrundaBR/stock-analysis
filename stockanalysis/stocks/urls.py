@@ -4,4 +4,6 @@ from stocks import views
 from django.contrib.auth import views as auth_views
 urlpatterns =[
     path('',views.Homepage,name="Home"),
+    path('signup',views.SignUp,name="signup"),
+    path('signin',views.Signin,name='signin'),
 ]
