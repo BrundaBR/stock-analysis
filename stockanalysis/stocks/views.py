@@ -7,13 +7,13 @@ def SignUp(request):
     form=UserRegisterForm()
     if request.method=='POST':
         form.save()
-        redirect('/')
+        redirect('/home')
     form=UserRegisterForm()
     return render(request,'signup.html',{'form':form})
-    
+
 def Signin(request):
     forms=UserSigninForm()
     if request.method=='POST':
-        redirect('/')
+        redirect('/home')
     forms=UserSigninForm()
     return render(request,'signin.html',{'forms':forms})
