@@ -1,1 +1,44 @@
-{{form}}
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href={% static "style.css" %} >
+    </head>
+
+   <body>
+       <style>
+           tr{
+               font-size: 20px;
+               font-family: Verdana, Geneva, Tahoma, sans-serif;
+               color: #08546C;
+           }
+           h1{
+            margin-top: 70px;
+    font-family: Verdana;
+    color:white;
+    font-size: 40px;
+           }
+           body{
+               background-color: #A0BACC;
+           }
+       </style>
+       <center>
+           <h1>Sign Up</h1>
+           <div class="card bg-light" style="width: 50rem;">
+    <form  method="post">
+        {% csrf_token %}
+        <table>
+            {% for field in form %}
+            <td>{{field.name}}</td>
+            <tr><td>{{field}}</td></tr>
+            {% endfor %}
+        </table>
+        <br>
+        <input type="submit" value="Submit"><br>
+        <a href={%url 'signin' %}>already have an account?</a>
+    </form>
+</div>
+</center>
+   </body>
+</html>

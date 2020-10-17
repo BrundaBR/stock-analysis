@@ -1,19 +1,48 @@
 from django.shortcuts import render,redirect
-from .forms import UserRegisterForm,UserSigninForm
+import pandas as pd
+from django.core.files.storage import FileSystemStorage
+from django.contrib.auth.forms import UserCreationForm
+import sqlite3
+from .models import BSEdata
 # Create your views here.
 def Homepage(request):
     return render(request,"index.html")
-def SignUp(request):
-    form=UserRegisterForm()
-    if request.method=='POST':
-        form.save()
-        redirect('/home')
-    form=UserRegisterForm()
-    return render(request,'signup.html',{'form':form})
+def View(request):
+    conn = sqlite3.connect("db.sqlite3")
+    df=pd.read_sql_query("SELECT * FROM stocks_bsedata",conn)
+    print(df)
+    return render(request,'tableview.html',{'df':df})
+def bhav(request):
+    
+    if request.user.is_authenticated:
+        if request.POST:
+            master_date = request.POST['bhav_copy_date']
+            excel_file = request.FILES['bhav_copy_file']
+            fs = FileSystemStorage(location='static/')
+            filename = fs.save(excel_file.name, excel_file)
+            
+            df = pd.read_csv('static/' + excel_file.name )
+            sm_list = df.values.tolist()
+            sm_list = sm_list[:]
+            for tmp_list in sm_list:
+                sm = BSEdata(copy_date=master_date, security_code=tmp_list[0], security_name=tmp_list[1], security_group=tmp_list[2], open=tmp_list[4], high=tmp_list[5], low=tmp_list[6], close=tmp_list[7], last=tmp_list[8], prevclose=tmp_list[9], no_trades=tmp_list[10], no_of_shares=tmp_list[11], net_turnover=tmp_list[12], isin_code=tmp_list[14])
+                sm.save()
+            os.remove('static/' +excel_file.name)
+      
+    else:
+        
+        if request.POST:
+            master_date = request.POST['bhav_copy_date']
+            excel_file = request.FILES['bhav_copy_file']
+            fs = FileSystemStorage(location='static/')
+            filename = fs.save(excel_file.name, excel_file)
+            
+            df = pd.read_csv('static/' + excel_file.name)
+            sm_list = df.values.tolist()
+            sm_list = sm_list[:]
+            for tmp_list in sm_list:
+                sm = BSEdata(copy_date=master_date, security_code=tmp_list[0], security_name=tmp_list[1], security_group=tmp_list[2], open=tmp_list[4], high=tmp_list[5], low=tmp_list[6], close=tmp_list[7], last=tmp_list[8], prevclose=tmp_list[9], no_trades=tmp_list[10], no_of_shares=tmp_list[11], net_turnover=tmp_list[12], isin_code=tmp_list[14])
+                sm.save()
+            os.remove('static/' + excel_file.name)
 
-def Signin(request):
-    forms=UserSigninForm()
-    if request.method=='POST':
-        redirect('/home')
-    forms=UserSigninForm()
-    return render(request,'signin.html',{'forms':forms})
+    return render(request,'upload.html')
