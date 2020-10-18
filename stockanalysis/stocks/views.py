@@ -4,13 +4,28 @@ from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.forms import UserCreationForm
 import sqlite3
 from .models import BSEdata
+from django.utils.datastructures import MultiValueDictKeyError
 # Create your views here.
+
 def Homepage(request):
-    return render(request,"index.html")
+    global stock_obtained
+    try:
+        Stock_code = request.GET['g']
+        stock_obtained=BSEdata.objects.filter(security_code=Stock_code)
+        
+        
+    except MultiValueDictKeyError:
+        Stock_code = False
+    context={'stock_obtained':stock_obtained}
+    return render(request,"index.html",context)
+
+
+
+
 def View(request):
     conn = sqlite3.connect("db.sqlite3")
     df=pd.read_sql_query("SELECT * FROM stocks_bsedata",conn)
-    print(df)
+    
     return render(request,'tableview.html',{'df':df})
 def bhav(request):
     

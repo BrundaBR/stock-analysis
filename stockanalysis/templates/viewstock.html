@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>STOCKS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    </head>
+
+
+  <div class="main">
+    <div class="table table-striped">	
+    
+    <table border="0.1" width="1500">
+    
+    
+    {% for vi in stock_obtained %}
+    <thead>
+    
+        <tr class="thead-dark">
+          
+          <th scope="col">Security name</th>
+          <th scope="col">Security code</th>
+          <th scope="col">Date</th>
+          <th scope="col">Close</th>
+          <th scope="col">Shares</th>
+          <th scope="col">Trades</th>
+          <th scope="col">Isin</th>
+          <th scope="col">Open</th>
+          <th scope="col">High</th>
+          <th scope="col">Low</th>
+          
+          
+        </tr>
+      </thead>
+     <tbody>
+    <tr >
+    
+    <td>{{ vi.id }} </td>
+    <td>
+    {{ vi.security_code }}</td>
+    <td>
+    {{ vi.copy_date }}</td>
+    <td> 
+    {{ vi.close }}</td>
+    <td>
+    {{ vi.no_of_shares }}</td>
+    <td>
+    {{ vi.no_trades }}</td>
+    <td>
+    {{ vi.isin }}</td>
+    <td>
+    {{ vi.open }}</td>
+    <td>
+    {{ vi.high }}</td>
+    <td>
+    {{ vi.low }}</td>
+   
+    
+    
+    {% endfor %}
+    </tr>
+    
+    
+    
+    
+    
+    
+    </tbody>
+    </div>
+    </table></center>
+    </div>
+    
+    </div>
+    </center>
+
+    </html>
