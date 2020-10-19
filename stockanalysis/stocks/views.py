@@ -25,9 +25,10 @@ def Homepage(request):
 
 def View(request):
     conn = sqlite3.connect("db.sqlite3")
-    df=pd.read_sql_query("SELECT * FROM stocks_bsedata",conn)
     
-    return render(request,'tableview.html',{'df':df})
+    dff=BSEdata.objects.all()
+    
+    return render(request,'tableview.html',{'dff':dff})
 def bhav(request):
     
     if request.user.is_authenticated:
