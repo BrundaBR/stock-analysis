@@ -8,16 +8,17 @@ from django.utils.datastructures import MultiValueDictKeyError
 # Create your views here.
 
 def Homepage(request):
-    global stock_obtained
     try:
         Stock_code = request.GET['g']
         stock_obtained=BSEdata.objects.filter(security_code=Stock_code)
+        return render(request,"index.html",{'stock_obtained':stock_obtained})
+
         
         
     except MultiValueDictKeyError:
         Stock_code = False
-    context={'stock_obtained':stock_obtained}
-    return render(request,"index.html",context)
+        
+    return render(request,"index.html")
 
 
 
