@@ -9,4 +9,5 @@ urlpatterns =[
     path('view/',views.View,name="view"),
     path('signin/',auth_views.LoginView.as_view(template_name='signin.html'),name='signin'),
     path('uploaddata/',views.bhav,name="upload"),
+    path('analysis/',views.analysis,name='analysis'),
 ]

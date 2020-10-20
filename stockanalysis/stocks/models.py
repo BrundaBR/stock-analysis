@@ -16,3 +16,13 @@ class BSEdata(models.Model):
     no_of_shares = models.CharField(max_length=255)
     net_turnover = models.CharField(max_length=255)
     isin_code = models.CharField(max_length=288)
+class analysis_01(models.Model):
+    security_name=models.CharField(max_length=233)
+class analysis_02(models.Model):
+    security_name=models.CharField(max_length=233)
+class analysis_03(models.Model):
+    security_name=models.CharField(max_length=233)
+class analysis_04(models.Model):
+    security_name=models.CharField(max_length=233)
+class analysis_05(models.Model):
+    security_name=models.CharField(max_length=233)

@@ -3,7 +3,7 @@ import pandas as pd
 from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.forms import UserCreationForm
 import sqlite3
-from .models import BSEdata
+from .models import BSEdata,analysis_01,analysis_02,analysis_03,analysis_04,analysis_05
 from django.utils.datastructures import MultiValueDictKeyError
 # Create your views here.
 
@@ -63,3 +63,23 @@ def bhav(request):
             os.remove('static/' + excel_file.name)
 
     return render(request,'upload.html')
+
+
+
+
+
+
+
+#-------------------------------------------------------------
+
+def analysis_01(df):
+    dataframe=df
+    return dataframe
+
+def analysis(request):
+    conn=sqlite3.connect("db.sqlite3")
+    df=pd.read_sql_query("select * from stocks_bsedata;",conn)
+    analysis1=analysis_01(df)
+    
+    context={'analysis1':analysis1}
+    return render(request,'analysis.html')

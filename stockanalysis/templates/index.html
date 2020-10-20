@@ -56,8 +56,14 @@
 <P>SURF:
 <a  href= {% url 'view' %} class="btn btn-light "style="width:7rem"; >Companies</a>
 <a  href= {% url 'upload' %} class="btn btn-light "style="width:7rem"; >Upload</a>
+
+<a  href={%url 'analysis' %} class="btn btn-light "style="width:7rem";>Analysis</a><br><br>
+<a href={% static 'download.csv' %} class="btn btn-light "style="width:13rem"; download>Bhavcopy Download</a>
 </P>
+
 <br>
+<br><br>
+<br><br>
 <br>
 
 <div class="main">
@@ -88,7 +94,7 @@
  <tbody>
   <tr >
   
-  <td>{{ vi.id }} </td>
+  <td>{{ vi.security_name }} </td>
   <td>
   {{ vi.security_code }}</td>
   <td>
@@ -100,7 +106,7 @@
   <td>
   {{ vi.no_trades }}</td>
   <td>
-  {{ vi.isin }}</td>
+  {{ vi.isin_code }}</td>
   <td>
   {{ vi.open }}</td>
   <td>
@@ -120,12 +126,12 @@
   </center>
 <br>
 <br>
-<br>
+
 
 </div>
 
 
-
+</div>
 <style>
   .footer{
     height: 70px;
@@ -136,10 +142,15 @@
     color: #08546C;
   }
 </style>
+<p1><a href="https://www.bseindia.com/">Bombay Stock Exchange(BSE) used in project. </a>    <a href="#">Todays Stock News</a></p1>
+
 <div class="footer">
-  <br><br>
-  <center>&copy;Copyrights Reserverd<br></center>
+  <br>
+  <center> Made with ❤ in India.<br>
+    &copy;Copyrights Reserverd
+ </center>
 </div>
+
 </body>
 
 </html>
