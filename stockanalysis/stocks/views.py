@@ -72,14 +72,23 @@ def bhav(request):
 
 #-------------------------------------------------------------
 
-def analysis_01(df):
-    dataframe=df
-    return dataframe
+def analysis_1():
+    conn=sqlite3.connect("db.sqlite3")
+    df=pd.read_sql_query("select * from stocks_bsedata;",conn)
+    df["no_trades"]=df["no_trades"].astype(float)
+    for i in df.index:
+        temp=df.loc[df['security_code']==df['security_code'][i]]
+        if ((float(temp['no_trades'].to_string(index=False)))>1000):
+            trades=(temp)
+            security_name=trades['security_name'].to_string(index=False)
+            savee=analysis_01(security_name=security_name)
+            savee.save()
+
 
 def analysis(request):
     conn=sqlite3.connect("db.sqlite3")
     df=pd.read_sql_query("select * from stocks_bsedata;",conn)
-    analysis1=analysis_01(df)
-    
-    context={'analysis1':analysis1}
-    return render(request,'analysis.html')
+    #analysis_1()
+    dff=pd.read_sql_query("select * from stocks_analysis_01;",conn)
+    name=dff['security_name']
+    return render(request,'analysis.html',{'name':name})

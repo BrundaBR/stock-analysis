@@ -11,9 +11,41 @@
         <p>If Number of trades established by company are greater than 1000</p>
         
     </div>
-</center>
 
-{{ analysis1.security_code }}
+<div class="main">
+    <div class="table table-striped">	
+    
+    <table border="0.1" width="100">
+        <thead>
+    
+            <tr class="thead-light">
+                
+              <th scope="col">Security name</th>
+              
+            </tr>
+          </thead>
+         <tbody>
+     
+    
+    {% for i in name %}
+    
+    <tr >
+        
+        
+    <td>{{ i }} </td>
+    
+   
+    {% endfor %}
+    </tr>
+  
+    </tbody>
+    </div>
+    </table></center>
+    </div>
+    
+    </div>
+    
+
 </body>
 
 
