@@ -5,20 +5,23 @@ from django.contrib.auth.forms import UserCreationForm
 import sqlite3
 from .models import BSEdata,analysis_01,analysis_02,analysis_03,analysis_04,analysis_05
 from django.utils.datastructures import MultiValueDictKeyError
+from users.models import SignupForm
 # Create your views here.
 
 def Homepage(request):
     try:
         Stock_code = request.GET['g']
         stock_obtained=BSEdata.objects.filter(security_code=Stock_code)
+        
         return render(request,"index.html",{'stock_obtained':stock_obtained})
 
         
         
     except MultiValueDictKeyError:
         Stock_code = False
+    user=SignupForm.objects.all()
         
-    return render(request,"index.html")
+    return render(request,"index.html",{'user':user})
 
 
 

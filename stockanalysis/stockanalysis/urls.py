@@ -19,6 +19,6 @@ from stocks import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('stocks/',include('stocks.urls')),
-    path('accounts/profile/',views.Homepage,name="home"),
+    path('',include('stocks.urls')),
+    # path('stocks/',views.Homepage,name="home"),
 ]

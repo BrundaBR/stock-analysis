@@ -7,7 +7,7 @@ urlpatterns =[
     path('',views.Homepage,name="home"),
     path('signup',a_views.SignUp,name="signup"),
     path('view/',views.View,name="view"),
-    path('signin/',auth_views.LoginView.as_view(template_name='signin.html'),name='signin'),
+    path('signin/',a_views.Signin,name="signin"),
     path('uploaddata/',views.bhav,name="upload"),
     path('analysis/',views.analysis,name='analysis'),
 ]
