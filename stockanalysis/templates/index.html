@@ -1,51 +1,85 @@
 {% extends 'basetemplate.html'%}
 {% load static %}
 {% block content %}
+<link rel="stylesheet" href={% static "style.css" %}>
+<style>
+.styling {
+  height:100%;
+}
 
-<br><br><br>
+  p{
+    
+    font-size: 15px;
+    color: #08546C;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  h5{
+color:#08546C;
+font-family: Verdana;
+font-size: 2rem;
+padding: 20px 0px;
+}
+input{
+  padding:10px;
+  font-family: Verdana;
+  
+  
 
-<center><h1>Stocks Analysis</h1>
-<br>
+}
+input ::placeholder{
+  color:rgb(196, 191, 191);
+}
+.main_content{
+  background-color:#08546C;
+  width: 100%;
+  height: 100%;
+
+}
+h1{
+  color:white;
+  text-align: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.links{
+  align-content: center;
+  padding: 100px 500px;
+}
+.search{
+  padding: 100px;
+}
+form{
+  width: 100%;
+}
+img{
+  border-radius: 30%;
+  padding: 0px;
+}
+
+</style>
+<!--main secion----------------------------------------------------->
+<center>
+
 
 <div class="styling">
     
 <div class="search">
-    <br>
-    <br>
+  <img src={% static 'logo.jpg' %} alt="Avatar">
     
-    <br>
-    <br>
-    <h5>Stock analysis and screening tool for investors in India.</h5>
-    <style>
-      p{
-        margin-top: 20px;
-        font-size: 15px;
-        color: white;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-      }
-      h5{
-color:white;
-font-family: Verdana;
+    <h5><b>Stock analysis and screening tool for investors in India</b></h5>
 
-}
-    </style>
-    
+
     <form type="get">
       
-    <input type="search" id="gsearch" placeholder="Search by security code ex : 500002" name="g"><button type="submit">Enter</button>
-  </form><p>Note : Security Code is a unique identification number for Company.</p></div>
-<P>SURF:
-<a  href= {% url 'view' %} class="btn btn-light "style="width:7rem"; >Companies</a>
-<a  href= {% url 'upload' %} class="btn btn-light "style="width:7rem"; >Upload</a>
+    <input type="search" id="gsearch" placeholder="Search by security code ex : 500002" name="g"><button type="submit">Search</button>
+  </form>
+  <p>Note : Security Code is a unique identification number for Company.</p>
+</div>
+<!----------------------------------------------------------------------------------------->
 
-<a  href={%url 'analysis' %} class="btn btn-light "style="width:7rem";>Analysis</a><br><br>
-<a href={% static 'download.csv' %} class="btn btn-light "style="width:13rem"; download>Bhavcopy Download</a>
-</P>
+<!--      about section--------->
 
-<br>
-<br><br>
-<br><br>
-<br>
 
 <div class="main">
   <div class="table">	
@@ -99,23 +133,68 @@ font-family: Verdana;
   </tr>
 
   </tbody>
-  </div>
-  </table></center>
-  </div>
+  </div></div>
+  </table>
+
+</center>
+</div>
   
+  
+<section>
+  <div class="main_content">
+  <h1>Stocks Analysis</h1>
+  <div class="links">
+    <P>SURF:
+    <a  href= {% url 'view' %} class="btn btn-light "style="width:7rem"; >Companies</a>
+    <a  href= {% url 'upload' %} class="btn btn-light "style="width:7rem"; >Upload</a>
+    
+    <a  href={%url 'analysis' %} class="btn btn-light "style="width:7rem";>Analysis</a>
+    <a href={% static 'download.csv' %} class="btn btn-light "style="width:13rem"; download>Bhavcopy Download</a>
+    </P>
+    </div></div>
+</section>  
+
+
+
+
+<!--links     ---------------------------------------->
+<style>
+  .decor{
+    background-color:#107394;
+    width: 100%;
+    height: 90%;
+    text-decoration: none;
+    color:white;
+    text-align: center;
+    margin-top: 5px;
+  }
+  .decor a{
+    color: white;
+    text-decoration: none;
+    justify-content: center;
+    font-size: 2rem;
+    
+  }
+  .decor_links{
+  margin: 5px;
+  /* top-bottom    leftright*/
+  padding: 250px 20px;
+  
+  }
+  </style>
+<section>
+  <div class="decor">
+    <div class="decor_links">
+      
+<a href="https://www.bseindia.com/">Bombay Stock Exchange(BSE) </a>   
+<a href="#">Todays Stock News</a></div>
+</div>
+</section>
+<section>
+  <div class="description">
+
   </div>
-  </center>
-<br>
-<br>
-
-
-</div>
-
-
-</div>
-
-<p1><a href="https://www.bseindia.com/">Bombay Stock Exchange(BSE) used in project. </a>    <a href="#">Todays Stock News</a></p1>
-
+</section>
 
 
 {% endblock %}

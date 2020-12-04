@@ -86,12 +86,18 @@ def analysis_1():
             security_name=trades['security_name'].to_string(index=False)
             savee=analysis_01(security_name=security_name)
             savee.save()
-
-
-def analysis(request):
+def filter_trades_1000(request):
     conn=sqlite3.connect("db.sqlite3")
     df=pd.read_sql_query("select * from stocks_bsedata;",conn)
     #analysis_1()
     dff=pd.read_sql_query("select * from stocks_analysis_01;",conn)
     name=dff['security_name']
-    return render(request,'analysis.html',{'name':name})
+    return render(request,"filter_trades_1000.html",{'name':name})
+
+def analysis(request):
+    
+    return render(request,'analysis.html')
+def filter_max_trades(request):
+    fil=BSEdata.objects.filter(no_trades=100)
+    maximum=fil
+    return render(request,'filter_max_trades.html',{'maximum':maximum})

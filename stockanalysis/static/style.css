@@ -9,14 +9,7 @@ h1{
     width:40%;
     height:55px;
 }
-.styling
-{
-    padding-left: 30px;
-    background-color:#A0BACC;
-    
-    
 
-}
 
 a{
     font-size: 20px;
@@ -26,7 +19,7 @@ a{
 }
 .styling button{
     height: 55px;
-    background-color: lightgrey;
+    background-color:#08546C ;
     color: white;
     width: 90px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;

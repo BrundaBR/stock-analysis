@@ -1,0 +1,41 @@
+{% extends 'analysis.html'%}
+{% load static %}
+
+
+{% block content1 %}
+<center>
+<div class="scrollbar" id="my_scroll_bar">
+    <div class="table table-striped">	
+    
+    <table border="0.1" width="100">
+        <thead>
+    
+            <tr class="thead-light">
+                
+              <th scope="col">Security name</th>
+              
+            </tr>
+          </thead>
+         <tbody>
+     
+    
+    {% for i in maximum %}
+    
+    <tr >
+        
+    <td>{{ i.security_name }} </td>
+    
+   
+    {% endfor %}
+    </tr>
+  
+    </tbody>
+    </div>
+    </table>
+        
+    </div>
+
+</div>
+</center>
+
+{%endblock content1%}
