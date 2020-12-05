@@ -74,14 +74,24 @@ def bhav(request):
 
 
 #-------------------------------------------------------------
+def del_previous_data(dff):
+    if analysis_01.objects.all().exists():
+        analysis_01.objects.all().delete()
+        print("DELETE COMPLETE!")
+    else:
+        print("EMPTY")
+
+    
 
 def analysis_1():
     conn=sqlite3.connect("db.sqlite3")
+    dff=pd.read_sql_query("select * from stocks_analysis_01;",conn)
+    del_previous_data(dff)
     df=pd.read_sql_query("select * from stocks_bsedata;",conn)
     df["no_trades"]=df["no_trades"].astype(float)
     for i in df.index:
         temp=df.loc[df['security_code']==df['security_code'][i]]
-        if ((float(temp['no_trades'].to_string(index=False)))>1000):
+        if ((float(temp['no_trades'].to_string(index=False))>1000) and (float(temp['no_of_shares'].to_string(index=False))>1000) and (float(temp['close'].to_string(index=False))>1000)):
             trades=(temp)
             security_name=trades['security_name'].to_string(index=False)
             savee=analysis_01(security_name=security_name)
@@ -89,7 +99,7 @@ def analysis_1():
 def filter_trades_1000(request):
     conn=sqlite3.connect("db.sqlite3")
     df=pd.read_sql_query("select * from stocks_bsedata;",conn)
-    #analysis_1()
+    analysis_1()
     dff=pd.read_sql_query("select * from stocks_analysis_01;",conn)
     name=dff['security_name']
     return render(request,"filter_trades_1000.html",{'name':name})
@@ -98,6 +108,10 @@ def analysis(request):
     
     return render(request,'analysis.html')
 def filter_max_trades(request):
+    conn=sqlite3.connect("db.sqlite3")
     fil=BSEdata.objects.filter(no_trades=100)
-    maximum=fil
-    return render(request,'filter_max_trades.html',{'maximum':maximum})
+    df=pd.read_sql_query("select * from stocks_bsedata;",conn)
+    df["no_trades"]=df["no_trades"].astype(float)
+    
+    
+    return render(request,'filter_max_trades.html')

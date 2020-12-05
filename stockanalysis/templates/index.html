@@ -5,6 +5,7 @@
 <style>
 .styling {
   height:100%;
+  background-color: lightblue;
 }
 
   p{
@@ -33,6 +34,7 @@ input ::placeholder{
   background-color:#08546C;
   width: 100%;
   height: 100%;
+  
 
 }
 h1{
@@ -138,21 +140,6 @@ img{
 
 </center>
 </div>
-  
-  
-<section>
-  <div class="main_content">
-  <h1>Stocks Analysis</h1>
-  <div class="links">
-    <P>SURF:
-    <a  href= {% url 'view' %} class="btn btn-light "style="width:7rem"; >Companies</a>
-    <a  href= {% url 'upload' %} class="btn btn-light "style="width:7rem"; >Upload</a>
-    
-    <a  href={%url 'analysis' %} class="btn btn-light "style="width:7rem";>Analysis</a>
-    <a href={% static 'download.csv' %} class="btn btn-light "style="width:13rem"; download>Bhavcopy Download</a>
-    </P>
-    </div></div>
-</section>  
 
 
 
@@ -160,25 +147,28 @@ img{
 <!--links     ---------------------------------------->
 <style>
   .decor{
-    background-color:#107394;
+    /* background-color:#107394; */
     width: 100%;
-    height: 90%;
+    height: 100%;
     text-decoration: none;
-    color:white;
+    color:#08546C;
     text-align: center;
     margin-top: 5px;
+   
+    background-image: url('/static/uplift.png');
   }
   .decor a{
-    color: white;
+    color: #08546C;
     text-decoration: none;
     justify-content: center;
     font-size: 2rem;
+    padding: 30px;
     
   }
   .decor_links{
   margin: 5px;
   /* top-bottom    leftright*/
-  padding: 250px 20px;
+  padding: 180px 20px;
   
   }
   </style>
@@ -195,6 +185,22 @@ img{
 
   </div>
 </section>
+  
+  
+<section>
+  <div class="main_content">
+  <h1>Stocks Analysis</h1>
+  <div class="links">
+    <P>SURF:
+    <a  href= {% url 'view' %} class="btn btn-light "style="width:7rem"; >Companies</a>
+    <a  href= {% url 'upload' %} class="btn btn-light "style="width:7rem"; >Upload</a>
+    
+    <a  href={%url 'analysis' %} class="btn btn-light "style="width:7rem";>Analysis</a>
+    <a href={% static 'download.csv' %} class="btn btn-light "style="width:13rem"; download>Bhavcopy Download</a>
+    </P>
+    </div></div>
+</section>  
+
 
 
 {% endblock %}

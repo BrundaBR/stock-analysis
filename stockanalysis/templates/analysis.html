@@ -3,77 +3,81 @@
 
 
 {% block content %}
-<script>
-
-
-</script>
-
-   
-    <style>
-     .dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
+<style>
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
 }
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  display: inline-block;
+.grid-child-content{
+margin-top: 10px;
 }
+h4{
+  margin-left: 100px;
+  
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+color:  #08546C;
+  }
+  .dropdown-content a{
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+color:  #08546C;
 
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
+  }
+  .content-info img{
+    width: 100%;
+    height: 80%;
+    padding: 0 100px;
+    
+    
+  }
+  .content-info h2{
+    text-align: center;
+    color:  #08546C;
+    padding: 5px;
+  }
+  .dropdown-content{
+    margin-left: 100px;
 
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-.dropdown-content a:hover {background-color: #ddd;}
+  }
 
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+</style>
+<div class="content-info">
+  <h2>Analysis of Bombay Stock Exchange India</h2>
+  <img src={% static "stocks.png" %} alt="">
+  
+</div>
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
-        
+<div class="grid-container">
+
+  <div class="grid-child purple">
+    
+<div class="sidebar">
+  <!-- <button class="dropbtn">Filters</button> -->
+  <div class="dropdown-content">
+    <li>
+      <h4>Filters</h4>
+      <hr>
+    <ol><a href={% url "filter_trades_1000" %}>Trades>1000 and Shares>1000 and close>1000</a></ol>
+    <ol><a href={% url "filter_trades_max" %}>Maximum number of trades </a></ol>
+    <ol><a href={% url "filter_trades_max" %}>Maximum number of trades </a></ol>
+    <ol><a href={% url "filter_trades_max" %}>Maximum number of trades </a></ol>
+    <ol><a href={% url "filter_trades_max" %}>Maximum number of trades </a></ol>
+  </li>
+  </div>
+</div>
+      
+  </div>
+
+  <div class="grid-child-content">
+    {%block content1%}
+
+    {%endblock content1%}
+  </div>
+
+</div>
+
+
  
-
-
-
-
-    </style>
-    
-        
-    
-    <div class="dropdown">
-        <button class="dropbtn">Dropdown</button>
-        <div class="dropdown-content">
-          <a href={% url "filter_trades" %}>Trades>1000</a>
-          <a href={% url "filter_trades_max" %}>Maximum number of trades </a>
-          <a href="#">Link 3</a>
-        </div>
-      </div>
-{%block content1%}
-
-{%endblock content1%}
-
-<section >
-    <div class="secondanalysis">
-        <p>just analysis</p>
-    </div>
-</section>
 {% endblock %}
 
