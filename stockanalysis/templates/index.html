@@ -5,19 +5,26 @@
 <style>
 .styling {
   height:100%;
-  background-color: lightblue;
+  /* background-color:#08546C; */
+  background-image: url('/static/bg-masthead.jpg') ;
+  background-size: cover;
+  padding-top: 5rem;
+  padding-bottom: 8rem;
 }
 
   p{
     
-    font-size: 15px;
-    color: #08546C;
+    font-size: 20px;
+    color: #fff;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
   h5{
-color:#08546C;
-font-family: Verdana;
-font-size: 2rem;
+color:#fff;
+font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+/* font-family: Verdana;
+font-size: 2.5rem; */
+font-size: 2.5rem;
 padding: 20px 0px;
 }
 input{
@@ -34,6 +41,10 @@ input ::placeholder{
   background-color:#08546C;
   width: 100%;
   height: 100%;
+  background-image: url('/static/bar.png') ;
+  background-size: cover;
+  padding-top: 5rem;
+  padding-bottom: 8rem;
   
 
 }
@@ -69,13 +80,14 @@ img{
 <div class="search">
   <img src={% static 'logo.jpg' %} alt="Avatar">
     
-    <h5><b>Stock analysis and screening tool for investors in India</b></h5>
+    <h5>Stock analysis and screening tool for investors in<br> India!</h5>
 
 
     <form type="get">
       
     <input type="search" id="gsearch" placeholder="Search by security code ex : 500002" name="g"><button type="submit">Search</button>
   </form>
+  
   <p>Note : Security Code is a unique identification number for Company.</p>
 </div>
 <!----------------------------------------------------------------------------------------->
@@ -175,18 +187,26 @@ img{
 <section>
   <div class="decor">
     <div class="decor_links">
+      <h6>Explore</h6>
       
 <a href="https://www.bseindia.com/">Bombay Stock Exchange(BSE) </a>   
 <a href="#">Todays Stock News</a></div>
 </div>
+
 </section>
 <section>
   <div class="description">
-
+    <P>SURF:
+      <a  href= {% url 'view' %} class="btn btn-light "style="width:7rem"; >Companies</a>
+      <a  href= {% url 'upload' %} class="btn btn-light "style="width:7rem"; >Upload</a>
+      
+      <a  href={%url 'analysis' %} class="btn btn-light "style="width:7rem";>Analysis</a>
+      <a href={% static 'download.csv' %} class="btn btn-light "style="width:13rem"; download>Bhavcopy Download</a>
+      </P>
   </div>
 </section>
   
-  
+<!--   
 <section>
   <div class="main_content">
   <h1>Stocks Analysis</h1>
@@ -199,7 +219,7 @@ img{
     <a href={% static 'download.csv' %} class="btn btn-light "style="width:13rem"; download>Bhavcopy Download</a>
     </P>
     </div></div>
-</section>  
+</section>   -->
 
 
 
