@@ -40,6 +40,10 @@ color:  #08546C;
     margin-left: 100px;
 
   }
+  .querybox{
+    padding-top: 200px;
+    
+  }
 
 </style>
 <div class="content-info">
@@ -60,9 +64,7 @@ color:  #08546C;
       <hr>
     <ol><a href={% url "filter_trades_1000" %}>Trades>1000 and Shares>1000 and close>1000</a></ol>
     <ol><a href={% url "filter_trades_max" %}>Maximum number of trades </a></ol>
-    <ol><a href={% url "filter_trades_max" %}>Maximum number of trades </a></ol>
-    <ol><a href={% url "filter_trades_max" %}>Maximum number of trades </a></ol>
-    <ol><a href={% url "filter_trades_max" %}>Maximum number of trades </a></ol>
+    
   </li>
   </div>
 </div>
@@ -78,6 +80,69 @@ color:  #08546C;
 </div>
 
 
- 
+<section>
+<div class="querybox">
+<center>
+  <h1>Query Box</h1>
+  <form type="get">
+      
+    <input type="text" id="trades" placeholder="Enter trades" name="trades">
+    <input type="text" id="shares" placeholder="Enter shares" name="shares">
+    <input type="text" id="close" placeholder="Enter close" name="close"><button type="submit">Submit</button>
+  </form>
+</center>
+
+</section>
+<center>
+  <style>
+    .scrollbar {
+     display:block;
+     border: 0.2rem ;
+     padding:5px;
+     margin-top:5px;
+     width:800px;
+     height:500px;
+     overflow:scroll;
+  }
+  
+</style>
+<div class="scrollbar" id="my_scroll_bar">
+    <div class="table table-striped">	
+    
+    <table border="0.1" width="1000">
+        <thead>
+    
+            <tr class="thead-light">
+                
+              <th scope="col">Security name</th>
+              
+            </tr>
+          </thead>
+         <tbody>
+     
+    
+    {% for i in lis %}
+    
+    <tr>
+        
+    <td>{{ i.security_name }} </td>
+    
+   
+    {% endfor %}
+    </tr>
+  
+    </tbody>
+    </div>
+    </table>
+        
+    </div>
+
+</div>
+</center>
+
+</div>
+
+
+
 {% endblock %}
 

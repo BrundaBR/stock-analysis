@@ -3,6 +3,7 @@
 <head>
   
     <title>STOCKS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
     <link rel="stylesheet" href={% static "style.css" %} >
@@ -21,18 +22,29 @@
              
               <a class="nav-link" href="{%url 'home' %}">Home</a>
             </li>
+            
             <li class="nav-item active">
              
-              <a class="nav-link" href="#about" id="about-page">About</a>
+              <a class="nav-link" href={% url "analysis" %}>Analysis</a>
+            </li>
+
+            <li class="nav-item active">
+             
+              <a class="nav-link" href={% url "upload" %}>Upload</a>
             </li>
             <li class="nav-item active">
              
-              <a class="nav-link" id="services-page" href={% url "analysis" %}>Analysis</a>
+              <a class="nav-link"  href={% url "view" %}>Data</a>
             </li>
             <li class="nav-item active">
+             
+              <a class="fa fa-download" style="font-size:20px;" href={% static "download.csv" %} download></a>
+            </li>
+            
+            <!-- <li class="nav-item active">
              
               <a class="nav-link" href="#">Sign off</a>
-            </li>
+            </li> -->
             {% if  user.username %}
             <li class="nav-item active">
               <a class="nav-link" href={% url 'signup' %}>Signup</a>
@@ -51,6 +63,10 @@
 
 <!----     head section end----------------------------------------------->
 <style>
+  .fa{
+    padding:10px 1000px;
+  
+  }
   .navbar-brand{
    color: #3222c2;
   font-size: 2rem;

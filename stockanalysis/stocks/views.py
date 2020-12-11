@@ -24,8 +24,6 @@ def Homepage(request):
     return render(request,"index.html",{'user':user})
 
 
-
-
 def View(request):
     conn = sqlite3.connect("db.sqlite3")
     
@@ -105,6 +103,28 @@ def filter_trades_1000(request):
     return render(request,"filter_trades_1000.html",{'name':name})
 
 def analysis(request):
+    try:
+        trades= request.GET['trades']
+        shares=request.GET['shares']
+        close=request.GET['close']
+        conn=sqlite3.connect("db.sqlite3")
+        #-----------------------------------------------------------------------
+        df=pd.read_sql_query("select * from stocks_bsedata;",conn)
+        df["no_trades"]=df["no_trades"].astype(float)
+        df["no_of_shares"]=df["no_of_shares"].astype(float)
+        df["close"]=df["close"].astype(float)
+        lis=[]
+        for i in df.index:
+            temp=df.loc[df['security_code']==df['security_code'][i]]
+            if ((float(temp['no_trades'].to_string(index=False))>int(f"{trades}")) and (float(temp['no_of_shares'].to_string(index=False))>int(f"{shares}")) and (float(temp['close'].to_string(index=False))>int(f"{close}"))):
+                lis.append(temp)
+                query=temp
+
+        
+        return render(request,'analysis.html',{'lis':lis})
+
+    except MultiValueDictKeyError:
+        print("ERROR")
     
     return render(request,'analysis.html')
 def filter_max_trades(request):
