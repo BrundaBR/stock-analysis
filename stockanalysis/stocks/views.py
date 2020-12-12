@@ -135,3 +135,32 @@ def filter_max_trades(request):
     
     
     return render(request,'filter_max_trades.html')
+
+
+
+#-------------------------------------------------------------
+#-------------------------news---------------------------------
+def news_scrape():
+    from bs4 import BeautifulSoup
+    import requests
+
+
+    #---------------------------------------------------------------------------------------------------------------------------------
+    top_5_news=[]
+
+    r=requests.get("https://economictimes.indiatimes.com/markets/stocks")
+    soup=BeautifulSoup(r.content,'html.parser')
+    top_news=(soup.findAll("ul", {"class": "list1"}))
+    content=(top_news[:5])
+    for i in content:
+        a_text=(i.find_all("a"))
+        for j in a_text:
+            top_5_news.append(j.text)
+    return top_5_news
+def stockNews(request):
+    lis=[]
+    x=news_scrape()
+    for i in x:
+        lis.append(i)
+    
+    return render(request,'news.html',{'lis':lis})
