@@ -1,6 +1,4 @@
-# stock-analysis
-![Screenshot (67)](https://user-images.githubusercontent.com/36494174/97096822-1e55b580-168f-11eb-8ec8-f973a3e756bf.png)
-
+# Stock-analysis
 
 
 
@@ -39,3 +37,14 @@
         security is primary key in tables
 
 4 stock-News  : provides daily updates on stock market
+
+
+# Preview
+![Screenshot (81)](https://user-images.githubusercontent.com/36494174/102209456-cbfa7d80-3ef6-11eb-844a-b062c2a7ddcd.png)
+
+
+
+![Screenshot (80)](https://user-images.githubusercontent.com/36494174/102209618-082dde00-3ef7-11eb-8a37-11e3d9d75611.png)
+
+
+
