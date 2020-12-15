@@ -24,7 +24,10 @@ def Signin(request):
 		password_data=request.POST.get('password')
 		if SignupForm.objects.filter(username=user_name,password=password_data):
 		
-			return redirect('/')
+			return redirect('/home')
 		else:
 			return redirect('/signup')
 	return render(request,'signin.html')
+
+def signout(request):
+	return render(request,'signout.html')

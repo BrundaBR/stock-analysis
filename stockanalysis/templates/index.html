@@ -8,13 +8,13 @@
   /* background-color:#08546C; */
   background-image: url('/static/bg-masthead.jpg') ;
   background-size: cover;
-  padding-top: 5rem;
-  padding-bottom: 8rem;
+  padding-top: 0.0rem;
+  padding-bottom: 2rem;
 }
 
   p{
     
-    font-size: 20px;
+    font-size: 10px;
     color: #fff;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
@@ -24,12 +24,13 @@ font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
 /* font-family: Verdana;
 font-size: 2.5rem; */
-font-size: 2.5rem;
-padding: 20px 0px;
+font-size: 1.5rem;
+padding: 10px 0px;
 }
 input{
-  padding:10px;
+  padding:5px;
   font-family: Verdana;
+  font-size: 0.5rem;
   
   
 
@@ -43,8 +44,8 @@ input ::placeholder{
   height: 100%;
   background-image: url('/static/bar.png') ;
   background-size: cover;
-  padding-top: 5rem;
-  padding-bottom: 8rem;
+  padding-top: 0.2rem;
+  padding-bottom: 1rem;
   
 
 }
@@ -164,47 +165,51 @@ img{
     height: 100%;
     text-decoration: none;
     color:#08546C;
-    text-align: center;
-    margin-top: 5px;
+    
+    margin-top: 0px;
    
     background-image: url('/static/uplift.png');
+    background-size: cover;
+  }
+  h6{
+    font-size: 6rem;
+    float: right;
+    padding-top: 30px;
+    padding-right: 30px;
+    color: #08546C;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
   .decor a{
     color: #08546C;
     text-decoration: none;
-    justify-content: center;
-    font-size: 2rem;
-    padding: 30px;
     
+    font-size: 1.5rem;
+ 
+    float: right;
   }
   .decor_links{
-  margin: 5px;
+  margin: 0px;
   /* top-bottom    leftright*/
-  padding: 180px 20px;
+  padding: 270px 0px;
+  padding-right: 30px;
+ 
   
   }
   </style>
 <section>
+  <h6>Explore</h6>
+  
   <div class="decor">
     <div class="decor_links">
-      <h6>Explore</h6>
+     
       
-<a href="https://www.bseindia.com/">Bombay Stock Exchange(BSE) </a>   
+<a href="https://www.bseindia.com/">Bombay Stock Exchange(BSE) </a>   <br><br>
+
 <a href={% url 'news'  %}>Todays Stock News</a></div>
 </div>
 
 </section>
-<!-- <section>
-  <div class="description">
-    <P>SURF:
-      <a  href= {% url 'view' %} class="btn btn-light "style="width:7rem"; >Companies</a>
-      <a  href= {% url 'upload' %} class="btn btn-light "style="width:7rem"; >Upload</a>
-      
-      <a  href={%url 'analysis' %} class="btn btn-light "style="width:7rem";>Analysis</a>
-      <a href={% static 'download.csv' %} class="btn btn-light "style="width:13rem"; download>Bhavcopy Download</a>
-      </P>
-  </div>
-</section> -->
+
   
 
 

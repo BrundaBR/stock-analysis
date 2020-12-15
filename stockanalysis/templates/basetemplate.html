@@ -10,7 +10,7 @@
     <link rel="script" href={% static "index.js" %}>
 
 <!----------------------------------------------navbar ---------------------------------------------------------->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 7rem;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 5rem;">
       
         <a class="navbar-brand" href="#"><img src={% static "bar.png" %}/>Stocker</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,6 +35,9 @@
             <li class="nav-item active">
              
               <a class="nav-link"  href={% url "view" %}>Data</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href={% url 'signout' %}>Signout</a>
             </li>
             <li class="nav-item active">
              
@@ -64,18 +67,21 @@
 <!----     head section end----------------------------------------------->
 <style>
   .fa{
-    padding:10px 1000px;
+    padding:10px 700px;
   
   }
   .navbar-brand{
    color: #3222c2;
-  font-size: 2rem;
-  padding: 0px 30px;
+  font-size: 1rem;
+  padding: 0px 20px;
   }
   .navbar-brand img{
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     border-radius: 30px;
+  }
+  .nav-link{
+    font-size: 1rem;
   }
 </style>
 <body>
@@ -92,14 +98,14 @@
 <!-- footer section--------------------------------------------- -->
 <style>
 .footer{
-    height: 70px;
+    height: 20px;
     width: 100%;
     
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 15px;
     color: #08546C;
     position: sticky;
-    
+    bottom: 0rem;
 
   }
 </style>
