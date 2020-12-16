@@ -1,45 +1,118 @@
-{% extends 'basetemplate.html'%}
+{% extends 'basetemplate.html' %}
 {% load static %}
-{% block content %}
-	
-  
 
+{% block content %}
+
+<style>
+    .left{
+        float: left;
+        background-color: tomato;
+        width: 50%;
+        height: 500px;
+        background-image: url("/static/left.png");
+        background-size: cover;
+    }
+    .right{
+        float: right;
+       
+        width: 50%;
+        height: 500px;
+    }
+</style>
 
 <center>
-    <h5>Upload Bombay stock exchange data </h5>
-    <br>
-    <br>
-    <br>
-  <div class="card border-secondary mb-3" style="max-width: 18rem;">
-  <div class="card-header">ADMIN PANEL</div>
-  <div class="card-body text-primary">
-    <h5 class="card-title">BHAV COPY</h5>
-    <div class='card border-info'>
-    
-     
-<form   method="POST" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {% if next %}
-                            <input type="hidden" name="next" value="{{ next }}" />
-                        {% endif %}
-                        <div class="">
-                            <p class="text-head">Upload File</p><br><br>
-                            Date: <input type="Date" name="bhav_copy_date" placeholder="Date" required="">
-                            <br><br>
-                            <input type="file" name="bhav_copy_file" required="">
-                        </div>
+    <div class="left">
+
+    </div>
+    <div class="right">
+        <style>
+
+            .card{
+                width: 40%;
+                margin-top: 50px;
+        
+            }
+            h5 {
+                color: #08546C;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-size: 2rem;
+            }
+            p{
+                color: #08546C;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-size: 1rem;
+            }
+            button{
+                
+                background-color:#08546C ;
+                color: #ffffff;
+            }
+        </style>
+        <center>
+            <br>
+            <h5>Upload data </h5>
+            <p>Add csv file of Bombay stock market bhav copy</p>
+        <div class="card">
+          
+                
+                <br>
+                <form method="POST" enctype="multipart/form-data">
+        
+                    {% csrf_token %}
+                  
+                    
+        
+                        Date: <input type="Date" name="bhav_copy_date" placeholder="Date" required=""/>
+                        <br> <br>
+                        Add File:<input type="file" name="bhav_copy_file" required=""/>
+                        <br><br>
+                        <br>
                         <button type="submit" class="signinbutton btn">Upload</button>
-                    </form>
-                </div></div></div>
-         
-</form>
-   </div>
-  </div>
-</div>
-
-
-</div>
-
+                        
+                </form>
+            
+        </div>
+        <br>
+        <p>Note: The file should be in .csv format</p>
+    </div>
+    <p>Bhav copy can be obatained by following link:https://www.bseindia.com </p>
 </center>
 
+
+
+
+
 {% endblock %}
+<style>
+
+    .card{
+        width: 40%;
+        margin-top: 50px;
+
+    }
+    h5{
+        color: #08546C;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+</style>
+<center>
+    <h5>Upload Bombay stock exchange data </h5>
+<div class="card">
+  
+        
+        <br>
+        <form method="POST" enctype="multipart/form-data">
+
+            {% csrf_token %}
+          
+            
+
+                Date: <input type="Date" name="bhav_copy_date" placeholder="Date" required=""/>
+                <br> <br>
+                <input type="file" name="bhav_copy_file" required=""/>
+                <br><br>
+                <button type="submit" class="signinbutton btn">Upload</button>
+         
+        </form>
+    
+</div>

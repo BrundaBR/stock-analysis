@@ -4,10 +4,16 @@
 
 {% block content %}
 <style>
+  .sidebar{
+    margin-top: 170px;
+  }
   .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
+    width: 100%;
+    height: 700px;
+    background-color: turquoise;
 }
 .grid-child-content{
 margin-top: 10px;
@@ -41,9 +47,40 @@ color:  #08546C;
 
   }
   .querybox{
-    padding-top: 200px;
+    padding-top: 50px;
+    font-size: 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
     
+  
+  
   }
+  .querybox button{
+    background-color: teal;
+    color:#ffffff;
+  }
+a{
+  font-size: 1rem;
+  color: #ffffff;
+}
+h4{
+  font-size: 2rem;
+  color: #ffffff;
+}
+h1{
+ 
+  color:  teal;
+  
+}
+.queryback{
+  background-image: url("/static/query.png");
+  background-attachment:cover;
+  
+}
+p{
+  color:teal;
+}
+
 
 </style>
 <div class="content-info">
@@ -55,17 +92,21 @@ color:  #08546C;
 <div class="grid-container">
 
   <div class="grid-child purple">
-    
+
 <div class="sidebar">
   <!-- <button class="dropbtn">Filters</button> -->
   <div class="dropdown-content">
-    <li>
+    <br>
       <h4>Filters</h4>
       <hr>
-    <ol><a href={% url "filter_trades_1000" %}>Trades>1000 and Shares>1000 and close>1000</a></ol>
-    <ol><a href={% url "filter_trades_max" %}>Maximum number of trades </a></ol>
+     <br>
+     <br>
+    <a href={% url "filter_trades_1000" %} style="color:#ffffff;">Trades>1000 and Shares>1000 and close>1000</a><br><br>
+    <a href={% url "filter_trades_1000" %} style="color:#ffffff;">Trades>1000 and Shares>1000 and close>1000</a><br><br>
+    <a href={% url "filter_trades_1000" %} style="color:#ffffff;">Trades>1000 and Shares>1000 and close>1000</a>
     
-  </li>
+    
+ 
   </div>
 </div>
       
@@ -78,12 +119,17 @@ color:  #08546C;
   </div>
 
 </div>
-
+<center>
+<h1>Query Box</h1>
+<p>Query box checks trades shares and close value of stocks</p>
+</center>
+<div class="queryback">
 
 <section>
+  
 <div class="querybox">
 <center>
-  <h1>Query Box</h1>
+  
   <form type="get">
       
     <input type="text" id="trades" placeholder="Enter trades" name="trades">
@@ -142,7 +188,7 @@ color:  #08546C;
 
 </div>
 
-
+</div>
 
 {% endblock %}
 
