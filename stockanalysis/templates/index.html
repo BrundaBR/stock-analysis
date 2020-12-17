@@ -154,64 +154,70 @@ img{
 </center>
 </div>
 
+<style>
+.leftlink{
+  float: left;
+  width:50%;
+  height:500px;
+  padding: 170px 170px;
+ background-color: rgb(209, 239, 240);
 
+
+ 
+}
+.rightlink{
+  float: right;
+  width:50%;
+  height:500px;
+  padding: 170px 170px;
+  /* background-color: #08546C; */
+  background-image: url("/static/image1.png");
+  background-size: cover;
+}
+.card{
+  width: 60%;
+  height:40%;
+  
+}
+a{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+}
+h6{
+  font-size: 2rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #08546C;
+}
+p{
+  color: #08546C;
+  font-size: 1rem;
+}
+</style>
 
 
 <!--links     ---------------------------------------->
-<style>
-  .decor{
-    /* background-color:#107394; */
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    color:#08546C;
-    
-    margin-top: 0px;
-   
-    background-image: url('/static/uplift.png');
-    background-size: cover;
-  }
-  h6{
-    font-size: 6rem;
-    float: right;
-    padding-top: 30px;
-    padding-right: 30px;
-    color: #08546C;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
-  .decor a{
-    color: #08546C;
-    text-decoration: none;
-    
-    font-size: 1.5rem;
- 
-    float: right;
-  }
-  .decor_links{
-  margin: 0px;
-  /* top-bottom    leftright*/
-  padding: 270px 0px;
-  padding-right: 30px;
- 
-  
-  }
-  </style>
-<section>
-  <h6>Explore</h6>
-  
-  <div class="decor">
-    <div class="decor_links">
-     
+<center>
+  <br>
+
+<h6><b>EXPLORE!</b> </h6>
+
+  <div class="leftlink">
+    <p>Bombay stock market website link </p>
+    <div class="card">
       
-<a href="https://www.bseindia.com/">Bombay Stock Exchange(BSE) </a>   <br><br>
+      <a href="https://www.bseindia.com/">Bombay Stock Exchange(BSE) </a> <br><br>
+    </div>
+  </div>
+  <div class="rightlink">
+    <p>News related to stocks .</p>
+    <div class="card">
+    
+      <a href={% url 'news'  %}>Todays Stock News</a><br><br>
+    </div>
 
-<a href={% url 'news'  %}>Todays Stock News</a></div>
-</div>
+  </div>
 
-</section>
-
-  
-
-
+</center>
 
 {% endblock %}
+
