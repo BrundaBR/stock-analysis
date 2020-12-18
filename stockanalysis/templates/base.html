@@ -8,7 +8,7 @@
     
     <link rel="stylesheet" href={% static "style.css" %} >
     <link rel="script" href={% static "index.js" %}>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 7rem;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 4rem;">
       
         <a class="navbar-brand" href="#"><img src={% static "bar.png" %}/>Stocker</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,20 +39,21 @@
 
 <!----     head section end----------------------------------------------->
 <style>
-  .fa{
-    padding:10px 1000px;
   
-  }
   .navbar-brand{
-   color: #3222c2;
-  font-size: 2rem;
-  padding: 0px 30px;
+   color: #656566;
+  font-size: 1rem;
+  padding: 0px 20px;
   }
   .navbar-brand img{
-    width: 50px;
-    height: 50px;
+    width: 20px;
+    height: 20px;
     border-radius: 30px;
   }
+  a{
+    font-size: 1rem;
+  }
+ 
 </style>
 <body>
     {% block content1 %}

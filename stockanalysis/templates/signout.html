@@ -5,6 +5,23 @@
 
     {% block content1 %}
 
-    <a href={%url 'signin' %}>sign in?</a>
+    <style>
+        .signout{
+            background-image: url("/static/back1.png");
+            margin-top: 30px;
+               background-size:cover;
+               width: 100%;
+               height: 100%;
+        }
+    </style>
+    <div class="signout">
+        <center>
+        
+        <a href={%url 'signin' %}>To access features of stocker please signin</a>
+    </center>
+        
+    </div>
+
+  
 
     {% endblock %}

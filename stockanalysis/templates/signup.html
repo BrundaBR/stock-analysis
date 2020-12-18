@@ -1,17 +1,38 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content1 %}
+
+
+<div class="signup">
+<br><br>
        <style>
+           .container{
+               margin-top: 70px;
+           }
+           .signup{
+               background-image: url("/static/left.png");
+               background-size:cover;
+               width: 100%;
+               height: 100%;
+               
+           }
            tr{
-               font-size: 20px;
+               font-size: 10px;
                font-family: Verdana, Geneva, Tahoma, sans-serif;
                color: #08546C;
            }
            h1{
-            margin-top: 70px;
+            margin-top: 30px;
     font-family: Verdana;
     color:#08546C;
     font-size: 40px;
+           }
+           
+           input label{
+
+            padding: 5px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
            }
            /* body{
                background-color: #A0BACC;
@@ -20,31 +41,31 @@
        <center>
         <div class="container">
            
-           <div class="card bg-light" style="width: 50rem;">
+           <div class="card bg-light" style="width: 30rem;">
             <h1>Sign Up</h1>
     <form  method="post">
         {% csrf_token %}
         
             
-                <label for="username"><b>Username</b></label>
+                <label for="username"><b>Username: </b></label>
               <input type="text" placeholder="Enter Username" name="username" required>
               <br>
+              <br>
               
-              <label for="email"><b>Email</b></label>
+              <label for="email"><b>Email Id      :  </b></label>
               <input type="email" placeholder="Enter Email" name="email" required>
               <br>
-          
-              <label for="password"><b>Password</b></label>
+            <br>
+              <label for="password"><b>Password: </b></label>
               <input type="password" placeholder="Enter Password" name="password" required>
                 <br>
-              <!-- <label for="psw-repeat"><b>Repeat Password</b></label>
-              <input type="password" placeholder="Repeat Password" name="psw-repeat" required> -->
-
-    
-        <br>
+               <br>
         <input type="submit" value="Submit"><br>
         <a href={%url 'signin' %}>already have an account?</a>
     </form>
 </div>
+        </div>
+
 </center>
+</div>
 {% endblock %}

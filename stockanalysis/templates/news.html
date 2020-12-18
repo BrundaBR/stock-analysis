@@ -6,23 +6,37 @@
 {% block content %}
 <center>
 
-<h2>Source - Economic Times</h2>
-<h1>Today's Top Stock News</h1>
+<h2><br>Today's Top Stock News</h2>
+
 <style>
 h2{
-background-image: url('/static/news.jpg');
-height: 50%;
+background-image: url('/static/image1.png');
+height: 60%;
 background-size: cover;
+color: #08546C;
+font-size: 4rem;
+}
+p{
+    background-color: #08546C;
+    color: aliceblue;
+}
+.card{
+    width: 40%;
+    font-size: 1rem;
+    color: #08546C;
 }
 </style>
+<p>Source- Economic times</p>
 <br>
 {% for i in lis %}
 
 
+<div class="card">
+    {{i}}
+</div>
 
-{{i}}
-<br><br>
-<hr style="width: 50%;">
+<br>
+<!-- <hr style="width: 50%;"> -->
 
 {%endfor %}
 </center>
