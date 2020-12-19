@@ -32,22 +32,23 @@
              
               <a class="nav-link" href={% url "upload" %}>Upload</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item-left active">
              
               <a class="nav-link"  href={% url "view" %}>Data</a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href={% url 'signout' %}>Signout</a>
-            </li>
-            <li class="nav-item active">
+           
+            <li class="nav-item-left-1 active">
              
               <a class="fa fa-download" style="font-size:20px;" href={% static "download.csv" %} download></a>
+              
             </li>
-            
-            <!-- <li class="nav-item active">
-             
-              <a class="nav-link" href="#">Sign off</a>
-            </li> -->
+            <li class="nav-item-left-2 active">
+            <a class="fa fa-user-circle" style="font-size:20px;" href="" ></a></li>
+            <li class="nav-item-left-3 active">
+              <a class="nav-link" href={% url 'signout' %}>Signout</a>
+            </li>
+         
+<!--             
             {% if  user.username %}
             <li class="nav-item active">
               <a class="nav-link" href={% url 'signup' %}>Signup</a>
@@ -55,7 +56,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href={% url 'signin' %}>Signin</a>
               </li>
-              {% endif %}
+              {% endif %} -->
           </ul>
         </div>
       </nav>
@@ -66,8 +67,13 @@
 
 <!----     head section end----------------------------------------------->
 <style>
+  .nav-item-left-1{
+    margin-left: 650px;
+
+  }
   .fa{
-    padding:10px 700px;
+    padding:10px 10px;
+
   
   }
   .navbar-brand{

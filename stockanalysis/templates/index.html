@@ -2,7 +2,11 @@
 {% load static %}
 {% block content %}
 <link rel="stylesheet" href={% static "style.css" %}>
+<script>
+  alert('Welcome to Stocker {{username}} !');
+  </script>
 <style>
+
 .styling {
   height:100%;
   /* background-color:#08546C; */
@@ -81,7 +85,7 @@ img{
 <div class="search">
   <img src={% static 'logo.jpg' %} alt="Avatar">
     
-    <h5>Stock analysis and screening tool for investors in<br> India!</h5>
+    <h5>Stock analysis and screening tool for investors in<br> India! </h5>
 
 
     <form type="get">

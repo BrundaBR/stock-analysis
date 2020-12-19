@@ -3,7 +3,7 @@ from .models import SignupForm
 from django.contrib.auth import authenticate
 # Create your views here.
 
-
+user=[]
 def SignUp(request):
 	if request.method=="POST":
 		username_data=request.POST.get('username')
@@ -19,11 +19,12 @@ def SignUp(request):
 		return render(request,'signup.html')
 		
 def Signin(request):
+	if user!=[]:user.pop()
 	if request.method=="POST":
 		user_name=request.POST.get('username')
 		password_data=request.POST.get('password')
 		if SignupForm.objects.filter(username=user_name,password=password_data):
-		
+			user.append(user_name)
 			return redirect('/home')
 		else:
 			return redirect('/signup')
